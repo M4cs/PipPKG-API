@@ -44,7 +44,7 @@ The packages module in PipPKG API is used for gaining general information about 
 
 Import PipPKG API Packages like this:
 ```
-from pippkg-api import packages
+from pippkgapi import packages
 ```
 
 To get the info for the package define pkginfo (or any variable) like so:
