@@ -4,7 +4,7 @@ PipPKG is a GUI for Pip that I have been working on in order to make managing yo
 
 # Getting Started
 
-*Installing with VirtualEnv*
+*Installing with VirtualEnv and Pip*
 ```
 cd project-name
 virtualenv env
@@ -12,10 +12,27 @@ source env/bin/activate on Unix or source .\env\bin\activate on Windows
 pip3 install pippkg-api requests
 ```
 
-*Installing without VirtualEnv*
+*Installing without VirtualEnv w/ Pip*
 ```
 pip3 install pippkg-api requests --user
 cd project-name
+```
+
+*Installing with VirtualEnv w/ Setup.py*
+```
+cd project-name
+virtualenv env
+source env/bin/activate on Unix or source .\env\bin\activate on Windows
+git clone https://github.com/M4cs/PipPKG-API.git
+cd PipPKG-API/
+python3 setup.py install
+```
+
+*Installing without VirtualEnv w/ Setup.py*
+```
+git clone https://github.com/M4cs/PipPKG-API.git
+cd PipPKG-API/
+python3 setup.py install
 ```
 
 # PipPKG API - Packages
