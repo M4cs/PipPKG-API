@@ -1,7 +1,4 @@
 <p align="center">
-  <a href="https://pepy.tech/project/pippkg-api"><img src="https://pepy.tech/badge/pippkg-api/week"></a>
-  <a href="https://pepy.tech/project/pippkg-api"><img src="https://pepy.tech/badge/pippkg-api/month"></a>
-  <a href="https://pepy.tech/project/pippkg-api"><img src="https://pepy.tech/badge/pippkg-api"></a></br>
   <a href='https://github.com/M4cs/PipPKG-API/issues/'><img src='https://img.shields.io/github/issues/M4cs/PipPKG-API.svg'></a>
   <a href='https://github.com/M4cs/PipPKG-API/forks/'><img src='https://img.shields.io/github/forks/M4cs/PipPKG-API.svg'></a>
   <a href='https://github.com/M4cs/PipPKG-API/blob/master/LICENSE.md/'><img src='https://img.shields.io/github/license/M4cs/PipPKG-API.svg'></a>
