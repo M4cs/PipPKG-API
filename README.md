@@ -1,3 +1,14 @@
+<p align="center">
+  <a href="https://pepy.tech/project/pippkg-api"><img src="https://pepy.tech/badge/pippkg-api/week"></a>
+  <a href="https://pepy.tech/project/pippkg-api"><img src="https://pepy.tech/badge/pippkg-api/month"></a>
+  <a href="https://pepy.tech/project/pippkg-api"><img src="https://pepy.tech/badge/pippkg-api"></a></br>
+  <a href='https://github.com/M4cs/PipPKG-API/issues/'><img src='https://img.shields.io/github/issues/M4cs/PipPKG-API.svg'></a>
+  <a href='https://github.com/M4cs/PipPKG-API/forks/'><img src='https://img.shields.io/github/forks/M4cs/PipPKG-API.svg'></a>
+  <a href='https://github.com/M4cs/PipPKG-API/blob/master/LICENSE.md/'><img src='https://img.shields.io/github/license/M4cs/PipPKG-API.svg'></a>
+  <a href='https://github.com/M4cs/PipPKG-API/stars/'><img src='https://img.shields.io/github/stars/M4cs/PipPKG-API.svg'></a>
+  <a href="https://discord.gg/7VN9VZe"><img src="https://img.shields.io/badge/discord-join-blue.svg?syle=popout"></a>
+</p>
+
 # PipPKG API
 
 PipPKG is a GUI for Pip that I have been working on in order to make managing your pip packages easier. While the GUI isn't complete I have completed the API wrapper for PyPi.org I will be using in it. I decided to open source it and release it on pip so that you guys could use it in your projects as well. You **do not need any API keys to use this**. Read on for more documentation.
@@ -125,4 +136,90 @@ Usage:
 classifiers = packages.getClassifiers(pkginfo)
 ```
 
-# This Documentation is Not Complete! If you would like to find more functions look above in the source code. Most functions are pretty self explainatory.
+### getProjectURLs(pkginfo) - Returns List
+
+The `getProjectURLs()` function returns a list of the defined urls the author uploaded the package with.
+
+Usage:
+```
+projectURLs = packages.getProjectURLs(pkginfo)
+```
+
+### getReleases(pkginfo) - Returns List
+
+The `getReleases()` function returns a list of release versions that are available on PyPi for said package. You can use these release numbers and values in the Releases module of PipPKG API.
+
+Usage:
+```
+releases = packages.getReleases(pkginfo)
+print(releases)
+>> ['1.1.11', '1.1.12']
+from pippkgapi import releases
+releaseOneSize = releases.getSize(pkginfo, releases[0])
+```
+
+This will return the size of the first release in the releases list.
+
+# PipPKG API - Releases:
+
+## Getting Started
+
+In order to use the releases module of PipPKG you must first get your pkginfo with the packages module. *Refer to **PipPKG API - Packages**.* It also requires a release version for each function. You can use the `packages.getReleases(pkginfo)` function to get a list of available packages.
+
+```
+from pippkgapi import packages
+pkginfo = packages.package('package name')
+releases = packages.getReleases(pkginfo)
+rnum = releases[0]
+from pippkgapi import releases
+releaseFilenames = releases.getSize(pkginfo, rnum)
+```
+
+**The argument that is rnum is = to the release number you want to grab info about.**
+
+### getReleaseMD5Hashes(pkginfo, rnum) - Returns String(s)
+
+The `getReleaseMD5Hashes()` function will return the MD5 hashes for the packages of that specific release.
+
+Usage:
+```
+md5hashes = releases.getReleaseMD5Hashes(pkginfo, rnum)
+```
+
+### getReleaseSHA256Hashes(pkginfo, rnum) - Returns String(s)
+
+The `getReleaseSHA256Hashes()` function works the same as the `getReleaseMD5Hashes()` function but instead it returns the SHA256 Hash.
+
+Usage:
+```sha256hashes = releases.getReleaseSHA256Hashes(pkginfo, rnum)```
+
+### getReleaseFilenames(pkginfo, rnum) - Returns List
+
+The `getReleaseFilenames()` function returns a list including the packagetype, filename, and the version.
+
+Usage:
+```
+releaseFilenames = releases.getReleaseFilenames(pkginfo, rnum)
+```
+
+### getReleaseFileURLs(pkginfo, rnum) - Returns List
+
+The `getReleaseFileURLs()` function returns a list including the package type and the url to that package.
+
+Usage:
+```
+releaseURLs = releases.getReleaseFileURLs(pkginfo, rnum)
+```
+
+### getReleaseSize(pkginfo, rnum) - Returns List
+The `getReleaseSize()` function returns a list including the package type and the size of that said package.
+
+Usage:
+```
+releaseSize = release.getReleaseFileURLs(pkginfo, rnum)
+```
+**This function works best in conjunction with `getReleaseSize()`**
+
+# Contributions:
+
+If you would like to contribute and add more functions or fix something up feel free to make a Pull Request. If I find your changes useful and working I will more than likely merge it! So feel free to add something if you feel it's lacking something important.
